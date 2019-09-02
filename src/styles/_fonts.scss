@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "SF-Pro-Display";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/assets/fonts/SF-Pro-Display-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Display";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/SF-Pro-Display-Semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Display";
+  font-style: normal;
+  font-weight: 900;
+  src: url("/assets/fonts/SF-Pro-Display-Bold.otf") format("opentype");
+}
+
+// ==========================================================================
+// Defaults
+// ==========================================================================
+$primary-font: "SF-Pro-Display";
+
+@mixin font-primary() {
+  font-family: $primary-font;
+}
+
+// ==========================================================================
+// Mixins
+// ==========================================================================
+$base-font-size: 22 !default;
+
+@mixin font-size($size-in-px, $line-height: 1.5) {
+  font-size: $size-in-px * 1px;
+  font-size: $size-in-px / $base-font-size * 1rem;
+  line-height: $size-in-px / $base-font-size * $line-height * 1rem;
+}

@@ -1,0 +1,16 @@
+@import "./colors";
+@import "./breakpoints";
+@import "./fonts";
+
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}  
+  }
+  
+  @include placeholder {
+      font-size:0.75rem;
+    //   font-family: "Gotham" !important;
+  }

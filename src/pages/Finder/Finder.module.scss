@@ -1,0 +1,37 @@
+@import "~styles/_common.module";
+
+.Finder {
+  position: fixed;
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  padding: 1rem;
+  .Logo {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .h1.ScanMessage {
+    margin: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .QrReader {
+    width: 80%;
+    section > video {
+      border-radius: 0.8rem;
+      background: rgba($dark-50, 0.07);
+    }
+  }
+  p.EnterManually {
+    @include font-size(20);
+    color: $dark-50;
+    flex-grow: 1;
+  }
+  .NextButton {
+    margin-bottom: 2rem;
+  }
+}

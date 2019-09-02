@@ -1,0 +1,23 @@
+$primary: #00dfc8;
+
+$success: #00dc7d;
+$hold: #f6d348;
+$error: #f85c50;
+
+$dark-200: #211f1f;
+$dark-100: #1c4653;
+$dark-50: #80959c;
+$dark-25: #d1dad6;
+$white: #ffffff;
+
+:export {
+  Primary: $primary;
+  Success: $success;
+  Hold: $hold;
+  Error: $error;
+  Dark200: $dark-200;
+  Dark100: $dark-100;
+  Dark50: $dark-50;
+  Dark25: $dark-25;
+  White: $white;
+}

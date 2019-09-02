@@ -1,0 +1,13 @@
+@import "~styles/_common.module";
+
+button.RoundedButton {
+  appearance: none;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  min-height: 2.5rem;
+  min-width: 100%;
+  border-radius: 0.2rem;
+  @include font-size(32);
+  font-weight: bold;
+}
