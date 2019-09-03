@@ -7,21 +7,34 @@
 trigger:
   branches:
     include:
-    - '*'
+      - "*"
     exclude:
-    - master
+      - master
 
 pool:
-  vmImage: 'ubuntu-latest'
-
+  vmImage: "ubuntu-latest"
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "10.x"
+    displayName: "Install Node.js"
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+  - script: |
+      npm install
+      npm run build
+    displayName: "npm install and build"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(System.DefaultWorkingDirectory)"
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: "$(System.DefaultWorkingDirectory)"
+      Contents: |
+        **\*.js
+        package.json
+      TargetFolder: "$(Build.ArtifactStagingDirectory)"
+
+  - task: PublishBuildArtifacts@1
