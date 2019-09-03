@@ -1,0 +1,67 @@
+@import "~styles/_common.module";
+
+.SelectTable {
+  // position: fixed;
+  background: $white;
+  width: 100%;
+  min-height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+  .Logo {
+    flex-grow: 1;
+    height: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .TablesList {
+    flex-grow: 1;
+    width: 100%;
+
+    h1.RestName,
+    h2.TableNumberMessage {
+      margin: 0;
+      align-self: flex-start;
+    }
+
+    h2.TableNumberMessage {
+      color: $dark-200;
+    }
+
+    h1.RestName {
+      color: $primary;
+    }
+    .TableNumbers {
+      width: 100%;
+
+      margin: 1rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 4rem);
+      grid-column-gap: 1rem;
+      grid-row-gap: 1rem;
+      justify-content: space-between;
+      align-content: center;
+      .Table {
+        min-height: 4rem;
+        min-width: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 150ms ease-out;
+        transform: scale(1);
+
+        &.selected {
+          transition: all 150ms ease-out;
+          transform: scale(1.2);
+          box-shadow: 0px 4px 7px rgba($primary, 0.07);
+        }
+      }
+    }
+  }
+
+  .NextButton {
+    margin-top: 2rem;
+  }
+}

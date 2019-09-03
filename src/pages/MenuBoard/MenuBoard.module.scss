@@ -1,0 +1,12 @@
+@import "~styles/_common.module";
+
+.MenuBoard {
+  // position: fixed;
+  background: $white;
+  width: 100%;
+  min-height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}

@@ -1,16 +1,17 @@
 import React from "react";
 import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
+import { RoundedButton } from "components/buttons";
+import { Primary, White } from "styles/colors";
+import { history } from "index";
 import QrReader from "react-qr-reader";
 import styles from "./Finder.module.scss";
-import { RoundedButton } from "components/buttons";
 
 export default function Finder() {
   return (
-    <div className={styles.Finder}>
+    <section className={styles.Finder}>
       <DineEasyLogo className={styles.Logo}></DineEasyLogo>
       <h1 className={styles.ScanMessage}>Place the code within this</h1>
       <QrReader
-        // delay={300}
         onError={e => {
           if (e) alert(e);
         }}
@@ -21,15 +22,17 @@ export default function Finder() {
           if (data) alert(data);
         }}
       />
-
       <p className={styles.EnterManually}>or enter manually</p>
 
       <RoundedButton
-        onClick={e => QrReader.openImageDialog()}
+        background={Primary}
+        textColor={White}
+        block
+        onClick={e => history.push("restaurants/999/tables")}
         className={styles.NextButton}
       >
         Next
       </RoundedButton>
-    </div>
+    </section>
   );
 }
