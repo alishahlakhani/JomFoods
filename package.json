@@ -4,21 +4,23 @@
   "versionify": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.4.0",
+    "antd": "^3.23.0",
+    "axios": "^0.19.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "typescript": "3.6.2",
-    "axios": "^0.19.0",
-    "classnames": "^2.2.6",
     "react-qr-reader": "^2.2.1",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1",
+    "typescript": "3.6.2"
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
+    "@types/classnames": "^2.2.9",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.3",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
-    "@types/classnames": "^2.2.9",
     "@types/react-router-dom": "^4.3.5",
     "node-sass": "^4.12.0",
     "versionify": "^1.0.1"
