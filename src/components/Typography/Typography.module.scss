@@ -1,0 +1,72 @@
+@import "~styles/_common.module";
+
+h1.Heading1 {
+  font-weight: 900;
+  @include font-size(32);
+  margin: 0;
+}
+
+h2.Heading2 {
+  font-weight: 900;
+  @include font-size(28);
+  margin: 0;
+}
+
+h3.Heading3 {
+  font-weight: 700;
+  @include font-size(24);
+  margin: 0;
+}
+
+// .Heading1 {
+//   font-size: 2.25rem;
+//   line-height: 2.5rem;
+// }
+
+// .Heading2 {
+//   font-size: 1.875rem;
+//   line-height: 2.25rem;
+// }
+
+// .Heading3 {
+//   font-size: 1.5rem;
+//   line-height: 1.875rem;
+// }
+
+// .Heading4 {
+//   font-size: 1.125rem;
+//   line-height: 1.5rem;
+// }
+
+// .Heading5 {
+//   font-size: 1rem;
+//   line-height: 1.375rem;
+// }
+
+.Paragraph {
+  @include font-size(20);
+  margin: 0;
+}
+
+.Small {
+  font-size: 0.6875rem;
+  line-height: 0.875rem;
+}
+
+.Link {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+.Heading1,
+.Heading2,
+.Heading3,
+.Heading4,
+.Heading5,
+.Paragraph,
+.Small,
+.Link {
+  // @include font-Gotham();
+}

@@ -23,20 +23,6 @@
     box-sizing: inherit;
     @include font-primary();
   }
-  h1 {
-    font-weight: 900;
-    @include font-size(32);
-  }
-
-  h2 {
-    font-weight: 900;
-    @include font-size(28);
-  }
-
-  h3 {
-    font-weight: 700;
-    @include font-size(24);
-  }
   * {
     touch-action: manipulation;
   }

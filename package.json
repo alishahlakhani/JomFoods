@@ -1,33 +1,36 @@
 {
   "name": "dine-easy",
-  "version": "0.1.0",
-  "versionify": "0.1.0",
+  "version": "0.1.6",
+  "versionify": "0.1.6",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.0",
+    "@material-ui/icons": "^4.4.1",
+    "@reach/router": "^1.2.1",
     "antd": "^3.23.0",
     "axios": "^0.19.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-qr-reader": "^2.2.1",
-    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
-    "typescript": "3.6.2"
+    "react-spring": "^8.0.27",
+    "react-swipeable-views": "^0.13.3",
+    "typescript": "3.6.2",
+    "undux": "5.0.0-beta.22"
   },
   "devDependencies": {
-    "classnames": "^2.2.6",
     "@types/classnames": "^2.2.9",
-    "@types/jest": "24.0.18",
     "@types/node": "12.7.3",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
-    "@types/react-router-dom": "^4.3.5",
+    "classnames": "^2.2.6",
     "node-sass": "^4.12.0",
+    "@types/reach__router": "^1.2.4",
     "versionify": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "versionify && react-scripts build && firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "secure": "HTTPS=true npm start"
