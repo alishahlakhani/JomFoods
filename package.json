@@ -1,7 +1,6 @@
 {
   "name": "dine-easy",
   "version": "0.1.6",
-  "versionify": "0.1.6",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.0",
@@ -25,12 +24,11 @@
     "@types/react-dom": "16.9.0",
     "classnames": "^2.2.6",
     "node-sass": "^4.12.0",
-    "@types/reach__router": "^1.2.4",
-    "versionify": "^1.0.1"
+    "@types/reach__router": "^1.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "versionify && react-scripts build && firebase deploy",
+    "build": "react-scripts build && firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "secure": "HTTPS=true npm start"
