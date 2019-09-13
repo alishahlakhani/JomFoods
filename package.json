@@ -1,11 +1,12 @@
 {
-  "name": "dine-easy",
-  "version": "0.1.7",
+  "name": "jomfood",
+  "version": "0.1.10",
   "private": true,
-  "versionify": "0.1.7",
+  "versionify": "0.1.10",
   "dependencies": {
     "@material-ui/core": "^4.4.0",
     "@material-ui/icons": "^4.4.1",
+    "@material-ui/lab": "^4.0.0-alpha.26",
     "@reach/router": "^1.2.1",
     "antd": "^3.23.0",
     "axios": "^0.19.0",
@@ -50,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "comments": {
+    "fun-packages": "react-api-cache"
   }
 }

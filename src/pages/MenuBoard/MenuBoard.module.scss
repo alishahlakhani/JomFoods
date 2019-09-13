@@ -43,18 +43,8 @@
     background-color: #f2f5f8;
     width: 100%;
     background: linear-gradient(180deg, #f2f5f8 80%, rgba(#f2f5f8, 0) 100%);
-    .MenuItem {
+    .MenuCard {
       margin: 1rem 2rem;
-      padding: 1rem 1.5rem;
-      border-radius: 0.4rem;
-      .ItemPrice {
-        white-space: pre;
-      }
-      .Top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
     }
   }
   footer {

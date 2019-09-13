@@ -1,49 +1,57 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
-import { RoundedButton } from "components/buttons";
-import { Primary, White, Dark25 } from "styles/colors";
-import { RouteComponentProps, navigate } from "@reach/router";
+import { RouteComponentProps } from "@reach/router";
+import { GlobalStore } from "store";
+import { FinderServices } from "./Finder.service";
 import Typography from "components/Typography/Typography";
 import QrReader from "react-qr-reader";
 import styles from "./Finder.module.scss";
 
 export default function Finder(props: RouteComponentProps) {
-  const [restaurantId, setRestaurantId] = useState<string | undefined>(
-    undefined
-  );
+  const store = GlobalStore.useStore();
+
+  const onScanError = e => {
+    if (e) alert(e);
+  };
+
+  const onScanSuccess = async data => {
+    if (data) {
+      alert("Restaurant found");
+      const restaurant = await FinderServices.getRestaurantInfo(999);
+      store.set("restaurant")(restaurant);
+      props.navigate!(`./${restaurant.id}/tables`);
+    }
+  };
+
   return (
     <section className={styles.Finder}>
-      <DineEasyLogo className={styles.Logo}></DineEasyLogo>
+      <DineEasyLogo
+        onClick={onScanSuccess}
+        className={styles.Logo}
+      ></DineEasyLogo>
       <Typography.Heading1 className={styles.ScanMessage}>
         Place the code within this
       </Typography.Heading1>
       <QrReader
-        onError={e => {
-          if (e) alert(e);
-        }}
+        onError={onScanError}
         showViewFinder={false}
         facingMode="environment"
         className={styles.QrReader}
-        onScan={data => {
-          if (data) {
-            alert("Restaurant found");
-            setRestaurantId(data);
-          }
-        }}
+        onScan={onScanSuccess}
       />
       <Typography.Paragraph className={styles.EnterManually}>
         or enter manually
       </Typography.Paragraph>
 
-      <RoundedButton
-        background={(restaurantId && Primary) || Dark25}
+      {/* <RoundedButton
+        background={(selected && selected.id && Primary) || Dark25}
         textColor={White}
         block
-        onClick={e => navigate("restaurants/999/tables")}
+        onClick={e => navigate(`restaurants/999/tables`)}
         className={styles.NextButton}
       >
         Next
-      </RoundedButton>
+      </RoundedButton> */}
     </section>
   );
 }

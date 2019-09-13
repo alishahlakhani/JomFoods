@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Dark50, Primary, White, Dark100 } from "styles/colors";
-import { RouteComponentProps } from "@reach/router";
-import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
+import { Dark50, Primary, White, Dark100, Dark25, Error } from "styles/colors";
+import { RouteComponentProps, Redirect } from "@reach/router";
 import { Typography } from "components";
 import { TextField } from "@material-ui/core";
 import { RoundedButton } from "components/buttons";
-import { MenuStore } from "pages/MenuBoard/MenuBoard.store";
 import { useSpring, animated } from "react-spring";
+import { GlobalStore } from "store";
+import { MenuItem } from "models/Taxonomies";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import styles from "./AddItemDrawer.module.scss";
 import classNames from "classnames";
+import styles from "./AddItemDrawer.module.scss";
 
 export default function AddItemDrawer(props: RouteComponentProps) {
-  const store = MenuStore.useStore();
+  const store = GlobalStore.useStore();
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [page, setPage] = useState(0);
@@ -39,6 +39,13 @@ export default function AddItemDrawer(props: RouteComponentProps) {
   //   process["browser"] && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   const selectedItem = props.location!.state!;
+
+  if (!selectedItem) {
+    return <Redirect noThrow to="../../" />;
+  }
+
+  const menuItem: MenuItem = selectedItem!.item;
+
   const close = () => {
     setTimeout(() => {
       props.navigate!("../../");
@@ -51,9 +58,20 @@ export default function AddItemDrawer(props: RouteComponentProps) {
     store.set("order")(
       store.get("order").concat([
         {
-          ...selectedItem,
-          quantity: order.count,
-          notes: order.notes
+          category: {
+            ...selectedItem.category,
+            items: [
+              {
+                id: menuItem.id,
+                label: menuItem.label,
+                currency: menuItem.currency,
+                desc: menuItem.desc,
+                price: menuItem.price,
+                quantity: order.count,
+                notes: order.notes
+              }
+            ]
+          }
         }
       ])
     );
@@ -68,6 +86,7 @@ export default function AddItemDrawer(props: RouteComponentProps) {
   return (
     <SwipeableDrawer
       BackdropProps={{ classes: { root: styles.BackdropStyle } }}
+      PaperProps={{ classes: { root: styles.PaperStyle } }}
       elevation={0}
       anchor="bottom"
       open={open}
@@ -91,16 +110,15 @@ export default function AddItemDrawer(props: RouteComponentProps) {
           onClick={e => setExpanded(!expanded)}
         ></animated.div>
         <div className={styles.ItemInformation}>
-          <DineEasyLogo className={styles.DineEasyLogo}></DineEasyLogo>
           <div className={styles.ItemDesc}>
             <div className={styles.Header}>
-              <Typography.Heading3>{selectedItem.title}</Typography.Heading3>
+              <Typography.Heading3>{menuItem.label}</Typography.Heading3>
               <Typography.Heading1>
-                {selectedItem.currency} {selectedItem.price}
+                {menuItem.currency} {menuItem.price}
               </Typography.Heading1>
             </div>
             <Typography.Paragraph textColor={Dark50}>
-              {selectedItem.desc}
+              {menuItem.desc}
             </Typography.Paragraph>
             <br />
 
@@ -108,7 +126,7 @@ export default function AddItemDrawer(props: RouteComponentProps) {
               <div className={styles.Quantity}>
                 <button
                   style={{
-                    backgroundColor: (order.count === 1 && Dark50) || Primary
+                    backgroundColor: (order.count === 1 && Dark25) || Primary
                   }}
                   disabled={order.count === 1}
                   onClick={e =>
@@ -168,8 +186,18 @@ export default function AddItemDrawer(props: RouteComponentProps) {
               block
               background={Primary}
               textColor={White}
+              className={styles.NextButton}
             >
               {(page === 0 && "Next") || "Add"}
+            </RoundedButton>
+            <RoundedButton
+              onClick={() => next()}
+              block
+              background={Error}
+              textColor={White}
+              className={styles.NextButton}
+            >
+              Remove
             </RoundedButton>
           </div>
         </div>

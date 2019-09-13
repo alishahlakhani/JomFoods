@@ -1,39 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
 import { RoundedButton } from "components/buttons";
 import { Primary, White, Dark50, Dark25 } from "styles/colors";
-import { RouteComponentProps, navigate, redirectTo } from "@reach/router";
+import { RouteComponentProps, redirectTo, Redirect } from "@reach/router";
+import { GlobalStore } from "store";
 import classNames from "classnames";
-import styles from "./SelectTable.module.scss";
 import Typography from "components/Typography/Typography";
-
-const tableNumbers = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18
-];
+import styles from "./SelectTable.module.scss";
 
 export default function SelectTable(props: RouteComponentProps) {
-  const [selectedTable, setSelectedTable] = useState<number | undefined>();
+  const store = GlobalStore.useStore();
+  const restaurant = store.get("restaurant");
+  const selectedTable = store.get("selectedTable");
+
+  if (!restaurant) return <Redirect noThrow to="../"></Redirect>;
+
+  const redirectToHome = () => redirectTo("/");
+  const setSelectedTable = table => {
+    if (selectedTable && table.id === selectedTable.id)
+      store.set("selectedTable")(undefined);
+    else store.set("selectedTable")(table);
+  };
+  const navigateToNext = () =>
+    selectedTable && props.navigate!(`./${selectedTable.id}/menus`);
+
+  const getTable = table => {
+    const isSelected = selectedTable && selectedTable.id === table.id;
+
+    return (
+      <RoundedButton
+        key={table.id}
+        className={classNames(styles.Table, {
+          [styles.selected]: isSelected
+        })}
+        background={(isSelected && Primary) || `${Dark50}11`}
+        textColor={(isSelected && White) || Dark50}
+        block
+        onClick={e => setSelectedTable(table)}
+      >
+        {table.label}
+      </RoundedButton>
+    );
+  };
+
   return (
     <section className={styles.SelectTable}>
       <DineEasyLogo
-        onClick={e => redirectTo("/")}
+        onClick={redirectToHome}
         className={styles.Logo}
       ></DineEasyLogo>
       <div className={styles.TablesList}>
@@ -42,23 +55,7 @@ export default function SelectTable(props: RouteComponentProps) {
         </Typography.Heading1>
         <h2 className={styles.TableNumberMessage}>What’s your table number?</h2>
         <div className={styles.TableNumbers}>
-          {tableNumbers.map(t => {
-            const isSelected = selectedTable === t;
-            return (
-              <RoundedButton
-                key={t}
-                className={classNames(styles.Table, {
-                  [styles.selected]: isSelected
-                })}
-                background={(isSelected && Primary) || `${Dark50}11`}
-                textColor={(isSelected && White) || Dark50}
-                block
-                onClick={e => setSelectedTable((!isSelected && t) || undefined)}
-              >
-                {String(t)}
-              </RoundedButton>
-            );
-          })}
+          {restaurant!.tables.map(getTable)}
         </div>
       </div>
       <RoundedButton
@@ -66,9 +63,7 @@ export default function SelectTable(props: RouteComponentProps) {
         textColor={White}
         block
         className={styles.NextButton}
-        onClick={e =>
-          selectedTable && navigate("/restaurants/999/tables/999/menus")
-        }
+        onClick={navigateToNext}
       >
         {(selectedTable && "Show Menu") || "Select Table Number"}
       </RoundedButton>

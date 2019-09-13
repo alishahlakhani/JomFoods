@@ -2,9 +2,7 @@ import { Taxonomies } from "models/Taxonomies";
 
 function getTaxonomies(storeId: number): Promise<Taxonomies> {
   const data: Taxonomies = {
-    restaurantId: 1,
-    restaurantName: "Ganga Vegetarian restaurant",
-    categories: [
+    menu: [
       {
         label: "Sunday Buffet Brunch",
         id: 0,
@@ -16,7 +14,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Buffet Take Away"
+            label: "Buffet Take Away"
           }
         ]
       },
@@ -31,7 +29,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Roti Chanai"
+            label: "Roti Chanai"
           },
           {
             id: 1,
@@ -39,7 +37,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Roti Bom"
+            label: "Roti Bom"
           },
           {
             id: 2,
@@ -47,7 +45,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Roti Planta"
+            label: "Roti Planta"
           },
           {
             id: 3,
@@ -55,7 +53,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Roti Onion"
+            label: "Roti Onion"
           },
           {
             id: 4,
@@ -63,7 +61,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Roti Cheese"
+            label: "Roti Cheese"
           },
           {
             id: 5,
@@ -71,7 +69,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Roti Murtabak"
+            label: "Roti Murtabak"
           }
         ]
       },
@@ -86,7 +84,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Plain Naan"
+            label: "Plain Naan"
           },
           {
             id: 1,
@@ -94,7 +92,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Onion Naan"
+            label: "Onion Naan"
           },
           {
             id: 2,
@@ -102,7 +100,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Kashmiri Naan"
+            label: "Kashmiri Naan"
           },
           {
             id: 3,
@@ -110,7 +108,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Garlic Naan"
+            label: "Garlic Naan"
           },
           {
             id: 4,
@@ -118,7 +116,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Cheese Naan"
+            label: "Cheese Naan"
           },
           {
             id: 5,
@@ -126,7 +124,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Cheese Plus Garlic Naan"
+            label: "Cheese Plus Garlic Naan"
           },
           {
             id: 6,
@@ -134,7 +132,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Butter Naan"
+            label: "Butter Naan"
           },
           {
             id: 7,
@@ -142,7 +140,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Mint Naan"
+            label: "Mint Naan"
           },
           {
             id: 8,
@@ -150,7 +148,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Tandoori Roti Naan"
+            label: "Tandoori Roti Naan"
           },
           {
             id: 9,
@@ -158,7 +156,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Tandoori Butter Roti Naan"
+            label: "Tandoori Butter Roti Naan"
           }
         ]
       },
@@ -173,7 +171,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Plain Paratha"
+            label: "Plain Paratha"
           },
           {
             id: 1,
@@ -181,7 +179,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Paneer Paratha"
+            label: "Paneer Paratha"
           },
           {
             id: 2,
@@ -189,7 +187,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Onion Paratha"
+            label: "Onion Paratha"
           },
           {
             id: 3,
@@ -197,7 +195,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Mixed Vege Paratha"
+            label: "Mixed Vege Paratha"
           },
           {
             id: 4,
@@ -205,7 +203,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Aloo Paratha"
+            label: "Aloo Paratha"
           }
         ]
       },
@@ -220,7 +218,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Vittu Thosai"
+            label: "Vittu Thosai"
           },
           {
             id: 1,
@@ -228,7 +226,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Plain Thosai"
+            label: "Plain Thosai"
           },
           {
             id: 2,
@@ -236,7 +234,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Onion Thosai"
+            label: "Onion Thosai"
           },
           {
             id: 3,
@@ -244,7 +242,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Ghee Thosai"
+            label: "Ghee Thosai"
           },
           {
             id: 4,
@@ -252,7 +250,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Masala Thosai"
+            label: "Masala Thosai"
           },
           {
             id: 5,
@@ -260,7 +258,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Rava Thosai"
+            label: "Rava Thosai"
           },
           {
             id: 6,
@@ -268,7 +266,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Rava Masala Thosai"
+            label: "Rava Masala Thosai"
           },
           {
             id: 7,
@@ -276,7 +274,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Rava Onion Thosai"
+            label: "Rava Onion Thosai"
           }
         ]
       },
@@ -291,7 +289,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Meeta's Special Chaat"
+            label: "Meeta's Special Chaat"
           },
           {
             id: 1,
@@ -299,7 +297,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Ganga Aloo Chaat"
+            label: "Ganga Aloo Chaat"
           },
           {
             id: 2,
@@ -307,7 +305,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Samosa Chaat"
+            label: "Samosa Chaat"
           },
           {
             id: 3,
@@ -315,7 +313,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Samosa Chole Chaat"
+            label: "Samosa Chole Chaat"
           },
           {
             id: 4,
@@ -323,7 +321,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Chola Tikki Chaat"
+            label: "Chola Tikki Chaat"
           },
           {
             id: 5,
@@ -331,7 +329,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Pani Poori"
+            label: "Pani Poori"
           },
           {
             id: 6,
@@ -339,7 +337,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Dahi Potato Poori"
+            label: "Dahi Potato Poori"
           },
           {
             id: 7,
@@ -347,7 +345,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Sev Potato Poori"
+            label: "Sev Potato Poori"
           }
         ]
       },
@@ -362,7 +360,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Uppama"
+            label: "Uppama"
           },
           {
             id: 1,
@@ -370,7 +368,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Vege Uttapam"
+            label: "Vege Uttapam"
           },
           {
             id: 2,
@@ -378,7 +376,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Vege Uttapam Cheese"
+            label: "Vege Uttapam Cheese"
           }
         ]
       },
@@ -393,7 +391,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Mee Goreng"
+            label: "Mee Goreng"
           },
           {
             id: 1,
@@ -401,7 +399,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Kwey Teow Goreng"
+            label: "Kwey Teow Goreng"
           },
           {
             id: 2,
@@ -409,7 +407,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Maggi Goreng"
+            label: "Maggi Goreng"
           },
           {
             id: 3,
@@ -417,7 +415,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Nasi Goreng"
+            label: "Nasi Goreng"
           }
         ]
       },
@@ -432,7 +430,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Vegetable Briyani Rice"
+            label: "Vegetable Briyani Rice"
           },
           {
             id: 1,
@@ -440,7 +438,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Hyderabad Dum Briyani"
+            label: "Hyderabad Dum Briyani"
           },
           {
             id: 2,
@@ -448,7 +446,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Vegetable Pulao"
+            label: "Vegetable Pulao"
           },
           {
             id: 3,
@@ -456,7 +454,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Ganga Nasi Lemak"
+            label: "Ganga Nasi Lemak"
           },
           {
             id: 4,
@@ -464,7 +462,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Basmati Rice"
+            label: "Basmati Rice"
           },
           {
             id: 5,
@@ -472,7 +470,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Jeera Rice"
+            label: "Jeera Rice"
           }
         ]
       },
@@ -487,7 +485,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Ganga Standard Thali"
+            label: "Ganga Standard Thali"
           }
         ]
       },
@@ -502,7 +500,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Dhal Makhani"
+            label: "Dhal Makhani"
           },
           {
             id: 1,
@@ -510,7 +508,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Dhal Thadka"
+            label: "Dhal Thadka"
           }
         ]
       },
@@ -525,7 +523,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Plain Palak"
+            label: "Plain Palak"
           },
           {
             id: 1,
@@ -533,7 +531,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Palak Paneer"
+            label: "Palak Paneer"
           },
           {
             id: 2,
@@ -541,7 +539,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Paneer Bhurji"
+            label: "Paneer Bhurji"
           },
           {
             id: 3,
@@ -549,7 +547,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Paneer Tikka Masala"
+            label: "Paneer Tikka Masala"
           },
           {
             id: 4,
@@ -557,7 +555,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Paneer Butter Masala"
+            label: "Paneer Butter Masala"
           },
           {
             id: 5,
@@ -565,7 +563,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Chana Masala"
+            label: "Chana Masala"
           },
           {
             id: 6,
@@ -573,7 +571,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Bhindi Masala"
+            label: "Bhindi Masala"
           },
           {
             id: 7,
@@ -581,7 +579,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Mushroom Matar Curry"
+            label: "Mushroom Matar Curry"
           },
           {
             id: 8,
@@ -589,7 +587,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Aloo Matar Curry"
+            label: "Aloo Matar Curry"
           },
           {
             id: 9,
@@ -597,7 +595,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Mixed Vege"
+            label: "Mixed Vege"
           },
           {
             id: 10,
@@ -605,7 +603,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Bombay Aloo"
+            label: "Bombay Aloo"
           },
           {
             id: 11,
@@ -613,7 +611,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Aloo Gobi"
+            label: "Aloo Gobi"
           },
           {
             id: 12,
@@ -621,7 +619,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Aloo Palak"
+            label: "Aloo Palak"
           },
           {
             id: 13,
@@ -629,7 +627,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Baingan Ka Bharta"
+            label: "Baingan Ka Bharta"
           },
           {
             id: 14,
@@ -637,7 +635,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Methi Malai Matar"
+            label: "Methi Malai Matar"
           },
           {
             id: 15,
@@ -645,7 +643,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Vegetable Kofta"
+            label: "Vegetable Kofta"
           }
         ]
       },
@@ -660,7 +658,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Veg Chicken"
+            label: "Veg Chicken"
           },
           {
             id: 1,
@@ -668,7 +666,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Veg Mutton"
+            label: "Veg Mutton"
           },
           {
             id: 2,
@@ -676,7 +674,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Veg Fish"
+            label: "Veg Fish"
           }
         ]
       },
@@ -691,7 +689,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Chana Bhatura"
+            label: "Chana Bhatura"
           },
           {
             id: 1,
@@ -699,7 +697,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Puri Set"
+            label: "Puri Set"
           },
           {
             id: 2,
@@ -707,7 +705,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Samosa Set"
+            label: "Samosa Set"
           },
           {
             id: 3,
@@ -715,7 +713,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Pav Bhaji"
+            label: "Pav Bhaji"
           },
           {
             id: 4,
@@ -723,7 +721,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Hara Bhara Kebab"
+            label: "Hara Bhara Kebab"
           }
         ]
       },
@@ -738,7 +736,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Pranic Juice"
+            label: "Pranic Juice"
           },
           {
             id: 1,
@@ -746,7 +744,7 @@ function getTaxonomies(storeId: number): Promise<Taxonomies> {
             desc:
               "Topped with melted 3 cheese blend, jalapenos, mashed black beans, queso and a hint of seasoned beef, served with housemade pico de gallo and sour cream",
             currency: "RM",
-            title: "Caribbean Cooler"
+            label: "Caribbean Cooler"
           }
         ]
       }

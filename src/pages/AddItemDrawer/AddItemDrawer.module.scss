@@ -1,11 +1,16 @@
 @import "~styles/_common.module";
 
 .BackdropStyle {
-  background: rgba($white, 0.8) !important;
+  background: rgba($white, 0.95) !important;
+}
+
+.PaperStyle {
+  background: transparent !important;
 }
 
 .SwipeDownMessage {
   text-align: center;
+  background: transparent;
   margin-bottom: 1rem;
 }
 
@@ -44,6 +49,7 @@
         .NumberCount {
           font-size: 3rem !important;
         }
+
         .QuantityButton {
           appearance: none;
           cursor: pointer;
@@ -62,6 +68,9 @@
           &.Subtract {
           }
         }
+      }
+      .NextButton {
+        margin-bottom: 1rem;
       }
     }
   }

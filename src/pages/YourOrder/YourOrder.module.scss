@@ -1,0 +1,60 @@
+@import "~styles/_common.module";
+
+.YourOrder {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f2f5f8 80%, rgba(#f2f5f8, 0) 100%);
+  display: inline-flex;
+  flex-direction: column;
+
+  header {
+    text-align: center;
+    color: $dark-200;
+    padding: 2rem;
+
+    .RestName {
+      color: $dark-200;
+    }
+  }
+
+  .Categories {
+    padding: 0 2rem;
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    .CategoryHeading {
+      margin-top: 1rem;
+      text-decoration: underline;
+      color: $primary;
+      font-weight: bold;
+    }
+    .MenuCard {
+      margin: 0.5rem 0rem;
+    }
+  }
+
+  footer {
+    bottom: 0;
+    background: linear-gradient(
+      360deg,
+      #ffffff 36.46%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    min-height: 8.5rem;
+    padding: 1rem 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .SumItem {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+  }
+}

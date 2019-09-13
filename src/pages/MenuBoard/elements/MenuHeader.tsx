@@ -1,6 +1,5 @@
 import React from "react";
 import { Typography } from "components";
-import { Taxonomies } from "models/Taxonomies";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Skeleton from "antd/lib/skeleton";
@@ -11,19 +10,24 @@ type Props = {
   isLoading: boolean;
   selectedTab: number;
   setSelectedTab: (e) => void;
-  categories?: Taxonomies;
+  tabs?: Array<{ label: string; id: number }>;
+  title?: string;
 };
 
 export default function MenuHeader(props: Props) {
-  const { isLoading, selectedTab, setSelectedTab, categories } = props;
+  const {
+    isLoading,
+    selectedTab,
+    setSelectedTab,
+    tabs = [],
+    title = ""
+  } = props;
 
   return (
     <header>
-      {categories && (
-        <Typography.Heading1 className={styles.RestName}>
-          {(categories && categories.restaurantName) || ""}
-        </Typography.Heading1>
-      )}
+      <Typography.Heading1 className={styles.RestName}>
+        {title}
+      </Typography.Heading1>
       <Tabs
         value={selectedTab}
         onChange={(event, newValue) => {
@@ -52,15 +56,15 @@ export default function MenuHeader(props: Props) {
           </>
         )}
         {!isLoading &&
-          categories!.categories.map(category => (
+          tabs.map(tab => (
             <Tab
-              key={category.id}
+              key={tab.id}
               classes={{
                 root: styles.Tab,
                 selected: classNames(styles.Selected)
               }}
-              value={category.id}
-              label={<Typography.Span>{category.label}</Typography.Span>}
+              value={tab.id}
+              label={<Typography.Span>{tab.label}</Typography.Span>}
             />
           ))}
       </Tabs>
