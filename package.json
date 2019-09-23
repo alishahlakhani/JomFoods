@@ -1,8 +1,8 @@
 {
   "name": "jomfood",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "private": true,
-  "versionify": "0.1.10",
+  "versionify": "0.1.12",
   "dependencies": {
     "@material-ui/core": "^4.4.0",
     "@material-ui/icons": "^4.4.1",

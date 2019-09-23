@@ -16,7 +16,6 @@ export default function Finder(props: RouteComponentProps) {
 
   const onScanSuccess = async data => {
     if (data) {
-      alert("Restaurant found");
       const restaurant = await FinderServices.getRestaurantInfo(999);
       store.set("restaurant")(restaurant);
       props.navigate!(`./${restaurant.id}/tables`);
