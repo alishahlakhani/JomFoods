@@ -15,8 +15,21 @@ export default function AddItemDrawer(props: RouteComponentProps) {
   const store = GlobalStore.useStore();
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [page, setPage] = useState(0);
-  const [order, setOrder] = useState({ count: 1, notes: "" });
+  const selectedItem = props.location!.state!;
+
+  const orderCategory = store.get("order")[selectedItem.category.label];
+  const preAddedItemIndex =
+    orderCategory &&
+    orderCategory.items.findIndex(i => selectedItem.item.id === i.id);
+
+  const preAddedItem = orderCategory && orderCategory.items[preAddedItemIndex];
+
+  const [order, setOrder] = useState({
+    quantity:
+      (preAddedItem && preAddedItem.quantity > -1 && preAddedItem.quantity) ||
+      0,
+    notes: (preAddedItem && preAddedItem.notes) || ""
+  });
 
   const imageHeightSpring = useSpring({
     immediate: false,
@@ -33,12 +46,11 @@ export default function AddItemDrawer(props: RouteComponentProps) {
     setTimeout(() => {
       setOpen(!open);
     }, 10);
+    // eslint-disable-next-line
   }, []);
 
   // const iOS =
   //   process["browser"] && /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-  const selectedItem = props.location!.state!;
 
   if (!selectedItem) {
     return <Redirect noThrow to="../../" />;
@@ -54,33 +66,34 @@ export default function AddItemDrawer(props: RouteComponentProps) {
   };
 
   const complete = () => {
-    store.set("count")(store.get("count") + order.count);
-    store.set("order")(
-      store.get("order").concat([
-        {
-          category: {
-            ...selectedItem.category,
-            items: [
-              {
-                id: menuItem.id,
-                label: menuItem.label,
-                currency: menuItem.currency,
-                desc: menuItem.desc,
-                price: menuItem.price,
-                quantity: order.count,
-                notes: order.notes
-              }
-            ]
-          }
-        }
-      ])
-    );
+    const finalOrder = store.get("order");
+
+    let newOrder = orderCategory;
+
+    if (!orderCategory) {
+      newOrder = { ...selectedItem.category, items: [] };
+    }
+
+    if (preAddedItemIndex > -1) {
+      newOrder.items[preAddedItemIndex] = {
+        ...newOrder.items[preAddedItemIndex],
+        ...order
+      };
+    } else {
+      newOrder.items.push({
+        ...selectedItem.item,
+        ...order
+      });
+    }
+
+    finalOrder[selectedItem.category.label] = newOrder;
+    store.set("order")(finalOrder);
+
     close();
   };
 
   const next = () => {
-    if (page === 0) setPage(page + 1);
-    else complete();
+    complete();
   };
 
   return (
@@ -97,12 +110,14 @@ export default function AddItemDrawer(props: RouteComponentProps) {
       onOpen={() => {}}
     >
       {!expanded && (
-        <Typography.Paragraph
-          textColor={Dark50}
-          className={styles.SwipeDownMessage}
-        >
-          Swipe down to close
-        </Typography.Paragraph>
+        <>
+          <Typography.Paragraph
+            textColor={Dark50}
+            className={styles.SwipeDownMessage}
+          >
+            Swipe down to close
+          </Typography.Paragraph>
+        </>
       )}
       <div className={styles.AddItemDrawer}>
         <animated.div
@@ -122,82 +137,73 @@ export default function AddItemDrawer(props: RouteComponentProps) {
             </Typography.Paragraph>
             <br />
 
-            {page === 0 && (
-              <div className={styles.Quantity}>
-                <button
-                  style={{
-                    backgroundColor: (order.count === 1 && Dark25) || Primary
-                  }}
-                  disabled={order.count === 1}
-                  onClick={e =>
-                    setOrder(old => {
-                      return { ...old, count: old.count - 1 };
-                    })
-                  }
-                  className={classNames(styles.Subtract, styles.QuantityButton)}
-                >
-                  -
-                </button>
-                <Typography.Heading1
-                  textColor={Dark100}
-                  className={styles.NumberCount}
-                >
-                  {order.count}
-                </Typography.Heading1>
-                <button
-                  className={classNames(styles.Add, styles.QuantityButton)}
-                  onClick={e =>
-                    setOrder(old => {
-                      return { ...old, count: old.count + 1 };
-                    })
-                  }
-                >
-                  +
-                </button>
-              </div>
-            )}
+            <TextField
+              label="Optional: Any special requirement?"
+              margin="none"
+              variant="outlined"
+              multiline
+              fullWidth
+              rows="4"
+              rowsMax="4"
+              defaultValue={order.notes}
+              // value={order.notes}
+              onChange={v => {
+                const val = v["target"]["value"];
+                setOrder(o => {
+                  return { ...o, notes: val };
+                });
+              }}
+            />
+            <div className={styles.Quantity}>
+              <RoundedButton
+                round={100}
+                shadow={(order.quantity === 0 && Dark25) || Error}
+                background={(order.quantity === 0 && Dark25) || Error}
+                textColor={White}
+                disabled={order.quantity === 0}
+                onClick={e =>
+                  setOrder(old => {
+                    return { ...old, quantity: old.quantity - 1 };
+                  })
+                }
+                className={classNames(styles.Subtract, styles.QuantityButton)}
+              >
+                -
+              </RoundedButton>
 
-            {page === 1 && (
-              <>
-                <TextField
-                  label="Optional: Any special requirement?"
-                  margin="none"
-                  variant="outlined"
-                  multiline
-                  fullWidth
-                  rows="4"
-                  rowsMax="4"
-                  defaultValue={order.notes}
-                  // value={order.notes}
-                  onChange={v => {
-                    const val = v["target"]["value"];
-                    setOrder(o => {
-                      return { ...o, notes: val };
-                    });
-                  }}
-                />
-                <br />
-                <br />
-              </>
-            )}
+              <Typography.Heading1
+                textColor={Dark100}
+                className={styles.NumberCount}
+              >
+                {order.quantity}
+              </Typography.Heading1>
+              <RoundedButton
+                round={100}
+                shadow
+                onClick={e =>
+                  setOrder(old => {
+                    return { ...old, quantity: old.quantity + 1 };
+                  })
+                }
+                background={Primary}
+                textColor={White}
+                className={classNames(styles.Add, styles.QuantityButton)}
+              >
+                +
+              </RoundedButton>
+            </div>
 
             <RoundedButton
+              round
               onClick={() => next()}
               block
-              background={Primary}
+              disabled={order.quantity === 0}
+              shadow={(order.quantity === 0 && Dark25) || Primary}
+              background={(order.quantity === 0 && Dark25) || Primary}
               textColor={White}
               className={styles.NextButton}
             >
-              {(page === 0 && "Next") || "Add"}
-            </RoundedButton>
-            <RoundedButton
-              onClick={() => next()}
-              block
-              background={Error}
-              textColor={White}
-              className={styles.NextButton}
-            >
-              Remove
+              Add
             </RoundedButton>
           </div>
         </div>

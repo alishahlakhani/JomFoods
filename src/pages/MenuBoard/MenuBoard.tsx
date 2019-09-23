@@ -24,6 +24,7 @@ export default function MenuBoard(props: RouteComponentProps) {
       store.set("menu")(menu);
       setSelectedTabIndex(0);
     });
+    // eslint-disable-next-line
   }, []);
 
   const taxonomy = store.get("menu");

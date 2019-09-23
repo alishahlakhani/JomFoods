@@ -2,16 +2,17 @@ import React from "react";
 import { RouteComponentProps, Redirect } from "@reach/router";
 import { Typography, MenuItem } from "components";
 import { GlobalStore } from "store";
-import styles from "./YourOrder.module.scss";
 import { RoundedButton } from "components/buttons";
 import { Primary, White, Dark50, Dark200 } from "styles/colors";
+import styles from "./YourOrder.module.scss";
 
 export default function YourOrder(props: RouteComponentProps) {
   const store = GlobalStore.useStore();
   const taxPercentage = store.get("configs").tax.percentage;
   const selectedItems = store.get("order");
+  const itemsLength = Object.values(selectedItems);
 
-  if (selectedItems.length === 0) {
+  if (itemsLength.length === 0) {
     return <Redirect noThrow to="/"></Redirect>;
   }
 
@@ -23,8 +24,8 @@ export default function YourOrder(props: RouteComponentProps) {
 
   const getSubTotal = () => {
     let subTotal = 0.0;
-    selectedItems.forEach(cat =>
-      cat.category.items.forEach(
+    itemsLength.forEach(cat =>
+      cat.items.forEach(
         item => (subTotal += getCumulativePrice(item.price, item.quantity))
       )
     );
@@ -51,17 +52,17 @@ export default function YourOrder(props: RouteComponentProps) {
         </Typography.Heading1>
       </header>
       <div className={styles.Categories}>
-        {selectedItems.map(cat => (
+        {itemsLength.map(menuItem => (
           <>
             <Typography.Heading3 className={styles.CategoryHeading}>
-              {cat.category.label}
+              {menuItem.label}
             </Typography.Heading3>
             <div>
-              {cat.category.items.map(item => (
+              {menuItem.items.map(item => (
                 <MenuItem
                   className={styles.MenuCard}
                   key={item.id}
-                  title={`${item.label} (x${item.quantity})`}
+                  title={item.label}
                   price={getCumulativePrice(item.price, item.quantity).toFixed(
                     2
                   )}
@@ -79,7 +80,7 @@ export default function YourOrder(props: RouteComponentProps) {
             Subtotal
           </Typography.Paragraph>
           <Typography.Paragraph textColor={Dark50}>
-            {orderSubTotal}
+            RM {orderSubTotal}
           </Typography.Paragraph>
         </div>
         <div className={styles.SumItem}>
@@ -94,7 +95,7 @@ export default function YourOrder(props: RouteComponentProps) {
             RM {orderTotal}
           </Typography.Heading2>
         </div>
-        <RoundedButton textColor={White} background={Primary} block>
+        <RoundedButton round textColor={White} background={Primary} block>
           Confirm Order
         </RoundedButton>
       </footer>

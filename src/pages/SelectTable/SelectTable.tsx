@@ -29,6 +29,7 @@ export default function SelectTable(props: RouteComponentProps) {
 
     return (
       <RoundedButton
+        round
         key={table.id}
         className={classNames(styles.Table, {
           [styles.selected]: isSelected
@@ -59,6 +60,7 @@ export default function SelectTable(props: RouteComponentProps) {
         </div>
       </div>
       <RoundedButton
+        round
         background={(selectedTable && Primary) || Dark25}
         textColor={White}
         block

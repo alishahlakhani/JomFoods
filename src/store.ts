@@ -1,10 +1,10 @@
-import { createConnectedStore, withLogger } from "undux";
+import { createConnectedStore, Effects } from "undux";
 import { MenuItem, Menu, Taxonomies } from "models/Taxonomies";
 import { RestaurantInfo, TableInfo } from "models/RestaurantInfo";
 
 type State = {
-  order: Array<{
-    category: Omit<Menu, "items"> & {
+  order: {
+    [label: string]: Omit<Menu, "items"> & {
       items: Array<
         MenuItem & {
           quantity: number;
@@ -12,7 +12,7 @@ type State = {
         }
       >;
     };
-  }>;
+  };
   restaurant?: RestaurantInfo;
   menu: Taxonomies;
   selectedTable?: TableInfo;
@@ -25,10 +25,14 @@ type State = {
 };
 
 let initialState: State = {
-  order: [],
+  order: {},
   menu: { menu: [] },
-  restaurant: undefined,
-  selectedTable: undefined,
+  restaurant: {
+    label: "Ganga",
+    id: 1,
+    tables: [{ id: 1, label: "1" }, { id: 2, label: "2" }]
+  },
+  selectedTable: { id: 2, label: "2" },
   count: 0,
   configs: {
     tax: {
@@ -37,4 +41,18 @@ let initialState: State = {
   }
 };
 
-export const GlobalStore = createConnectedStore(initialState, withLogger);
+let effects: Effects<State> = store => {
+  store.on("order").subscribe(order => {
+    const newCount = Object.values(order).reduce((total, currentValue) => {
+      return (
+        total +
+        currentValue.items.reduce((cTotal, cCurrentValue) => {
+          return cCurrentValue.quantity + cTotal;
+        }, 0)
+      );
+    }, 0);
+    store.set("count")(newCount);
+  });
+  return store;
+};
+export const GlobalStore = createConnectedStore(initialState, effects);
