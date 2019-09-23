@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
+import { ReactComponent as Logo } from "svgs/app-logo.svg";
 import { AppMaterialTheme, White } from "styles/colors";
 import { Affix } from "antd";
 import { MenuBoardServices } from "./MenuBoard.service";
@@ -102,7 +102,7 @@ export default function MenuBoard(props: RouteComponentProps) {
         </section>
         <Affix offsetBottom={0} style={{ width: "100%" }}>
           <footer>
-            <DineEasyLogo className={styles.Logo}></DineEasyLogo>
+            <Logo className={styles.Logo}></Logo>
           </footer>
         </Affix>
         {store.get("count") > 0 && (

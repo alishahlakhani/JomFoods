@@ -27,12 +27,8 @@ type State = {
 let initialState: State = {
   order: {},
   menu: { menu: [] },
-  restaurant: {
-    label: "Ganga",
-    id: 1,
-    tables: [{ id: 1, label: "1" }, { id: 2, label: "2" }]
-  },
-  selectedTable: { id: 2, label: "2" },
+  restaurant: undefined,
+  selectedTable: undefined,
   count: 0,
   configs: {
     tax: {

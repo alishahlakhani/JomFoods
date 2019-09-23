@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
+import { ReactComponent as Logo } from "svgs/app-logo.svg";
 import { RouteComponentProps } from "@reach/router";
 import { GlobalStore } from "store";
 import { FinderServices } from "./Finder.service";
@@ -25,10 +25,7 @@ export default function Finder(props: RouteComponentProps) {
 
   return (
     <section className={styles.Finder}>
-      <DineEasyLogo
-        onClick={onScanSuccess}
-        className={styles.Logo}
-      ></DineEasyLogo>
+      <Logo onClick={onScanSuccess} className={styles.Logo}></Logo>
       <Typography.Heading1 className={styles.ScanMessage}>
         Place the code within this
       </Typography.Heading1>

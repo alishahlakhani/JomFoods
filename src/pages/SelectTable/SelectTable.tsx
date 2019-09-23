@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
+import { ReactComponent as Logo } from "svgs/app-logo.svg";
 import { RoundedButton } from "components/buttons";
 import { Primary, White, Dark50, Dark25 } from "styles/colors";
 import { RouteComponentProps, redirectTo, Redirect } from "@reach/router";
@@ -46,10 +46,7 @@ export default function SelectTable(props: RouteComponentProps) {
 
   return (
     <section className={styles.SelectTable}>
-      <DineEasyLogo
-        onClick={redirectToHome}
-        className={styles.Logo}
-      ></DineEasyLogo>
+      <Logo onClick={redirectToHome} className={styles.Logo}></Logo>
       <div className={styles.TablesList}>
         <Typography.Heading1 className={styles.RestName}>
           Ganga Vegetarian restaurant
