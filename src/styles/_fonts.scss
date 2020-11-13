@@ -1,28 +1,7 @@
-@font-face {
-  font-family: "SF-Pro-Display";
-  font-style: normal;
-  font-weight: 500;
-  // src: url("/assets/fonts/SF-Pro-Display-Regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "SF-Pro-Display";
-  font-style: normal;
-  font-weight: 700;
-  // src: url("/assets/fonts/SF-Pro-Display-Semibold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "SF-Pro-Display";
-  font-style: normal;
-  font-weight: 900;
-  // src: url("/assets/fonts/SF-Pro-Display-Bold.otf") format("opentype");
-}
-
 // ==========================================================================
 // Defaults
 // ==========================================================================
-$primary-font: "SF-Pro-Display";
+$primary-font: "Noto Sans", sans-serif;
 
 @mixin font-primary() {
   font-family: $primary-font;
