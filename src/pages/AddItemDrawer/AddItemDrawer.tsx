@@ -15,7 +15,7 @@ export default function AddItemDrawer(props: RouteComponentProps) {
   const store = GlobalStore.useStore();
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const selectedItem = props.location!.state!;
+  const selectedItem:any = props.location!.state!;
 
   const orderCategory = store.get("order")[selectedItem.category.label];
   const preAddedItemIndex =

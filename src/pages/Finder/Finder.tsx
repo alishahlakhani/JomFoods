@@ -1,11 +1,13 @@
 import React from "react";
 import { ReactComponent as Logo } from "svgs/app-logo.svg";
-import { RouteComponentProps } from "@reach/router";
+import { navigate, RouteComponentProps } from "@reach/router";
 import { GlobalStore } from "store";
 import { FinderServices } from "./Finder.service";
 import Typography from "components/Typography/Typography";
 import QrReader from "react-qr-reader";
 import styles from "./Finder.module.scss";
+import { RoundedButton } from "components/buttons";
+import {  Dark25, Primary, White } from "styles/colors";
 
 export default function Finder(props: RouteComponentProps) {
   const store = GlobalStore.useStore();
@@ -39,15 +41,15 @@ export default function Finder(props: RouteComponentProps) {
         or enter manually
       </Typography.Paragraph>
 
-      {/* <RoundedButton
-        background={(selected && selected.id && Primary) || Dark25}
+      <RoundedButton
+        background={(true && Primary) || Dark25}
         textColor={White}
         block
         onClick={e => navigate(`restaurants/999/tables`)}
         className={styles.NextButton}
       >
         Next
-      </RoundedButton> */}
+      </RoundedButton>
     </section>
   );
 }
