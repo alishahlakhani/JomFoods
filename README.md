@@ -6,3 +6,5 @@ INLINE_RUNTIME_CHUNK=false
 SKIP_PREFLIGHT_CHECK=true
 NODE_PATH=src```
 ````
+
+![alt text](1-scan.PNG)
