@@ -1,0 +1,73 @@
+@import "~styles/_common.module";
+
+.BackdropStyle {
+  background: rgba($white, 0.95) !important;
+}
+
+.PaperStyle {
+  background: transparent !important;
+}
+
+.SwipeDownMessage {
+  text-align: center;
+  background: transparent;
+  margin-bottom: 1rem;
+}
+
+.AddItemDrawer {
+  .ItemInformation {
+    overflow: auto;
+    // margin: 2rem;
+    padding: 0 2rem;
+    margin-top: -5rem;
+    display: flex;
+    flex-direction: column;
+
+    .ItemDesc {
+      padding: 1rem;
+      background: white;
+      .Header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .Stepper {
+        padding: 0;
+      }
+      .Quantity {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+
+        .NumberCount {
+          font-size: 3rem !important;
+        }
+
+        .QuantityButton {
+          appearance: none;
+          cursor: pointer;
+          outline: 0;
+          border: 0;
+          border-radius: 10rem;
+          height: 3.5rem;
+          width: 3.5rem;
+          color: $white;
+          font-size: 1.25rem;
+          font-weight: bold;
+
+          &.Add {
+            background: $primary;
+          }
+          &.Subtract {
+          }
+        }
+      }
+      .NextButton {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

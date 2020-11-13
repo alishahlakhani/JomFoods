@@ -12,7 +12,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
     "outDir": "dist",
     "sourceMap": true,
     "moduleResolution": "node",
@@ -23,7 +22,10 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "jsx": "react",
+    "noFallthroughCasesInSwitch": true
+  
   },
   "exclude": [
     "node_modules",

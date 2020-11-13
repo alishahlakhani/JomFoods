@@ -1,34 +1,51 @@
 import React from "react";
-import { ReactComponent as DineEasyLogo } from "svgs/dineEasyLogo.svg";
-import { RoundedButton } from "components/buttons";
-import { Primary, White } from "styles/colors";
-import { history } from "index";
+import { ReactComponent as Logo } from "svgs/app-logo.svg";
+import { navigate, RouteComponentProps } from "@reach/router";
+import { GlobalStore } from "store";
+import { FinderServices } from "./Finder.service";
+import Typography from "components/Typography/Typography";
 import QrReader from "react-qr-reader";
 import styles from "./Finder.module.scss";
+import { RoundedButton } from "components/buttons";
+import {  Dark25, Primary, White } from "styles/colors";
 
-export default function Finder() {
+export default function Finder(props: RouteComponentProps) {
+  const store = GlobalStore.useStore();
+
+  const onScanError = e => {
+    if (e) alert(e);
+  };
+
+  const onScanSuccess = async data => {
+    if (data) {
+      const restaurant = await FinderServices.getRestaurantInfo(999);
+      store.set("restaurant")(restaurant);
+      props.navigate!(`./${restaurant.id}/tables`);
+    }
+  };
+
   return (
     <section className={styles.Finder}>
-      <DineEasyLogo className={styles.Logo}></DineEasyLogo>
-      <h1 className={styles.ScanMessage}>Place the code within this</h1>
+      <Logo onClick={onScanSuccess} className={styles.Logo}></Logo>
+      <Typography.Heading1 className={styles.ScanMessage}>
+        Place the code within this
+      </Typography.Heading1>
       <QrReader
-        onError={e => {
-          if (e) alert(e);
-        }}
+        onError={onScanError}
         showViewFinder={false}
         facingMode="environment"
         className={styles.QrReader}
-        onScan={data => {
-          if (data) alert(data);
-        }}
+        onScan={onScanSuccess}
       />
-      <p className={styles.EnterManually}>or enter manually</p>
+      <Typography.Paragraph className={styles.EnterManually}>
+        or enter manually
+      </Typography.Paragraph>
 
       <RoundedButton
-        background={Primary}
+        background={(true && Primary) || Dark25}
         textColor={White}
         block
-        onClick={e => history.push("restaurants/999/tables")}
+        onClick={e => navigate(`restaurants/999/tables`)}
         className={styles.NextButton}
       >
         Next

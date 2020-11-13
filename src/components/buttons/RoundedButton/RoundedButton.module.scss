@@ -5,8 +5,7 @@ button.RoundedButton {
   cursor: pointer;
   outline: 0;
   border: 0;
-  min-height: 4rem;
-  border-radius: 0.2rem;
+  min-height: 3rem;
   @include font-size(32);
   font-weight: bold;
 
